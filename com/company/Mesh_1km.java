@@ -8,13 +8,15 @@ public class Mesh_1km extends Mesh_2nd{
     static double lat_cell_1km = (double)(30) / (double) (3600);
     static double lon_cell_1km = (double)(45) / (double) (3600);
 
-    double lon_mod_2nd;
-    double lat_mod_2nd;
+    double lon_mod_1km;
+    double lat_mod_1km;
+    String mesh_1km;
 
     Mesh_1km(double lat, double lon){
         super(lat,lon);
-        this.lat_mod_2nd = lat_mod_1st - mesh_lat_2nd() * lat_cell_2nd;
-        this.lon_mod_2nd = lon_mod_1st - mesh_lon_2nd() * lon_cell_2nd;
+        this.mesh_1km = mesh_1km();
+        this.lat_mod_1km = this.lat_mod_2nd - mesh_lat_1km() * lat_cell_1km;
+        this.lon_mod_1km = this.lon_mod_2nd - mesh_lon_1km() * lon_cell_1km;
     }
 
     int mesh_lat_1km(){

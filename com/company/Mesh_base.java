@@ -4,6 +4,11 @@ package com.company;
  * Created by sachio on 2016/10/15.
  */
 public class Mesh_base  {
+    /* 日本の最大最小緯度経度 */
+    static int max_degree_lat = 46;
+    static int min_degree_lat = 21;
+    static int max_degree_lon = 154;
+    static int min_degree_lon = 123;
 
     double lat;
     double lon;
@@ -14,8 +19,16 @@ public class Mesh_base  {
     }
 
     boolean validate_chk(){
-        return !(lat < 22 || lon < 132 || lat > 55 || lon > 155);
+        int degree_lat = to_degree(lat);
+        int degree_lon = to_degree(lon);
+        return !(lat < min_degree_lat || lon < min_degree_lon || lat > max_degree_lat || lon > max_degree_lon);
 
+    }
+
+    int to_degree(double rad){
+        int degree;
+        degree = (int)(rad);
+        return degree;
     }
 
     int to_minute(double rad){
